@@ -1,0 +1,99 @@
+name = "materialize"
+description = "A straight forward materialized landing theme"
+license = "MIT"
+homepage = "https://github.com/verpeteren/gutenberg-materialize"
+min_version = "0.2.2"
+
+[extra]
+
+[author]
+name = "Peter Reijnders"
+homepage = "https://verpeteren.nl"
+
+[original]
+author =  "Materialize"
+homepage = "http://materializecss.com/"
+repo = "https://github.com/Dogfalo/materialize/"
+
+[extra.materialize]
+logo = {small = "http://placehold.it/32x32", big = "http://placehold.it/240x240"}
+home = {url = "/", name = "Home"}
+copyright = {url = "/#", name ="© 2018 - Zuodong Yu"}
+sidebar = "off" #"left"
+links = [
+    {url = "/about", name = "About me"},
+]
+[extra.materialize.colorscheme]
+font = {one = "teal", two="brown", three = "white"}
+background = {one = "teal", two="grey lighten-3", three = "white"}
+
+[extra.materialize.footer]
+
+[extra.materialize.footer.bio]
+title = "Zuodong Yu"
+description = "Pursue excellence, and success will follow!"
+
+[extra.materialize.footer.references]
+title = "Links"
+list = [
+    {url = "https://github.com/archion", name="my github"},
+]
+
+[extra.materialize.footer.contact]
+title = ""
+list = [
+]
+
+[extra.materialize.social]
+
+ga = "UA-123456789-1"
+
+#discuss = "verpeteren"
+
+#facebook = "verpeteren"
+#livejournal = "verpeteren"
+#twitter = "verpeteren"
+#reddit = "u/verpeteren"
+#googleplus = "123456789012345678901"
+
+#hackernews = "verpeteren"
+#slashdot = "verpeteren"
+#myspace = "verpeteren"
+#tumblr = "verpeteren"
+#medium = "verpeteren"
+
+#skype = "verpeteren"
+#slack = "verpeteren"
+#whatsapp = "0031623456789"
+#viber = "verpeteren/%2B/en"
+#wikipedia = "verpeteren"
+
+#pinterest = "verpeteren"
+#pinboard = "verpeteren"
+#dribble = "verpeteren"
+#flickr = "16832534@N03"
+#instagram = "verpeteren"
+
+#songkick = "1234567-ver-peteren"
+#bandcamp = "verpeteren"
+#soundcloud = "verpeteren"
+#lastfm = "Ver-Peteren"
+
+#github = "verpeteren"
+#gitlab = "verpeteren"
+#bitbucket = "verpeteren"
+#stackoverflow = "1234567/verpeteren"
+
+#deviantart = "verpeteren"
+#shadertoy = "verpeteren"
+
+#youtube = "DJtJKMICpb9B1qf7qjEOA"
+#periscope = "1gqxvYRvnBgJB"
+#vimeo = "verpeteren"
+
+#email = "peter.reijnders@verpeteren.nl"
+#linkedin = "peter-reijnders-83634149"
+#xing = "peter_reijnders123"
+#meetup = "A-Meetup-Group"
+#justgiving = "verpeteren"
+

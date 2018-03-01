@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block title %}
+	<title>{{ category.name }} - {{ config.title }}</title>
+{% endblock title %}
+
+{% block meta %}
+	<meta name="description" content="{{ config.description }}">
+	<meta property="og:title" content="{{ category.name }} - {{ config.title }}">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="{{ config.extra.materialize.logo }}">
+	<meta property="og:url" content="{{ current_url }}">
+	<meta property="og:description" content="{{ config.description }}">
+	<meta property="og:site_name" content="{{ config.title }}">
+{% endblock meta %}
+
+{% block main %}
+	<h1>Category: {{ category.name }}</h1>
+	<h2 class="chip {{ config.extra.materialize.colorscheme.font.two }}-text {{ config.extra.materialize.colorscheme.background.one }}">{{ category.name }}</h2>
+	<ul class="collection">
+		{% for page in category.pages %}
+			<li class="collection-item">
+				{{ macros::post_header(page=page, config=config) }}
+				<p>{{ page.summary | safe }}</p>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock main %}
+
