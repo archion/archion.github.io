@@ -14,39 +14,6 @@
                 <link>https:&#x2F;&#x2F;archion.github.io&#x2F;posts&#x2F;2018-03-01-zju-network&#x2F;</link>
                 <guid>https:&#x2F;&#x2F;archion.github.io&#x2F;posts&#x2F;2018-03-01-zju-network&#x2F;</guid>
                 <description>&lt;p&gt;初来浙大紫荆港，办公室内电脑有线网络通过用&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;QSCTech&#x2F;zjunet&quot;&gt;zjunet&lt;&#x2F;a&gt;连VPN后可以上网，不过下载文件只有前两三秒有速度，访问网页也是有些网站内容显示不全，在线看视频听歌也会断，而且即使不连网，从内网服务器上rsync也有类似问题。网络中心的人过来用他们的usb网卡测试问题依旧，所以可以排除网卡问题，电脑通过usb连接android手机通过学校的无线网络上网则一切正常，很是奇怪。。。&lt;&#x2F;p&gt;
-&lt;p&gt;在cc98上搜了些帖子和网络中心对Mac OS上VPN的配置指导，大致了解了下浙大的上网环境，于是尝试不借助zjunet而是自己手动配置网络，结果问题就消失了。。&lt;&#x2F;p&gt;
-&lt;p&gt;本质上说，浙大的上网方式就是xl2tp类型的VPN，不过由于连上VPN后就不能上内网了，而VPN服务器（lns.zju.edu.cn）又是在内网，所以连上VPN后由于不能访问VPN服务器而导致上不了网，并且1分钟后VPN服务器会判断用户下线而断开VPN连接。所以要想上网，有两个条件，第一，可以ping通lns.zju.edu.cn(10.0.2.73)，如果连接不上则需要配置网卡的路由表，其次是连上VPN后仍然ping通lns.zju.edu.cn，这也需要配置路由表，因为一般连上VPN后所有流量都是走VPN的。&lt;&#x2F;p&gt;
-&lt;p&gt;所以需要作的事情有两个&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;是设置网卡的静态路由，并额外添加一条VPN服务器的路由，设置小metric以便优先使用。&lt;&#x2F;li&gt;
-&lt;li&gt;通过xl2tp连接学校的VPN。&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;这两个步骤可以用命令行完成也可以用图形界面完成，由于NetworkManager支持xl2tp的VPN连接，所以在networkmanager里设置静态路由和VPN是非常方便的，而且都不需要借助额外的软件或者脚本。&lt;&#x2F;p&gt;
-&lt;p&gt;路由表参考zjunet的代码：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#191919&quot;&gt;
-&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;#内网网段
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;10.0.2.73 #VPN服务器IP，需要设置较小的metric值，以便使其优先级高于VPN连接自动设置的路由表
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;10.0.0.0&#x2F;8
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;58.196.192.0&#x2F;19
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;58.196.224.0&#x2F;20
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;58.200.100.0&#x2F;24
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;210.32.0.0&#x2F;20
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;210.32.128.0&#x2F;19
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;210.32.160.0&#x2F;21
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;210.32.168.0&#x2F;22
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;210.32.172.0&#x2F;23
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;210.32.176.0&#x2F;20
-&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#191919;color:#f8f8f2;&quot;&gt;222.205.0.0&#x2F;17
-&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;比如我的NetworkManager的有线连接路由表为：&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;route_rule.jpg&quot; alt=&quot;路由规则&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;并且无需设置VPN的路由表。&lt;&#x2F;p&gt;
-&lt;p&gt;虽然到最后也没明白为什么最开始会出问题，不过无所谓了。最后还是要吐槽下浙大的上网方式的，南京大学可是几年前就实现了有线无限统一用网页登陆认证了。&lt;&#x2F;p&gt;
-&lt;p&gt;参考：&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;www.cc98.org&#x2F;topic&#x2F;3938990&#x2F;1#1&quot;&gt;浙大紫金港宿舍Linux上网详解&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;zuits.zju.edu.cn&#x2F;_upload&#x2F;article&#x2F;files&#x2F;f3&#x2F;4f&#x2F;c651caee4321bbc6b559686fd46b&#x2F;cc7fab05-3aff-4512-90bb-f876a263b004.docx&quot;&gt;浙江大学网络中心Mac OS VPN设置方法&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
 </description>
             </item>
         
