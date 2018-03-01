@@ -147,19 +147,19 @@
 <p>这两个步骤可以用命令行完成也可以用图形界面完成，由于NetworkManager支持xl2tp的VPN连接，所以在networkmanager里设置静态路由和VPN是非常方便的，而且都不需要借助额外的软件或者脚本。</p>
 <p>路由表参考zjunet的代码：</p>
 <pre style="background-color:#191919">
-<span style="background-color:#191919;color:#f8f8f2;">#内网网段
-</span><span style="background-color:#191919;color:#f8f8f2;">10.0.2.73 #VPN服务器IP，需要设置较小的metric值，以便使其优先级高于VPN连接自动设置的路由表
-</span><span style="background-color:#191919;color:#f8f8f2;">10.0.0.0/8
-</span><span style="background-color:#191919;color:#f8f8f2;">58.196.192.0/19
-</span><span style="background-color:#191919;color:#f8f8f2;">58.196.224.0/20
-</span><span style="background-color:#191919;color:#f8f8f2;">58.200.100.0/24
-</span><span style="background-color:#191919;color:#f8f8f2;">210.32.0.0/20
-</span><span style="background-color:#191919;color:#f8f8f2;">210.32.128.0/19
-</span><span style="background-color:#191919;color:#f8f8f2;">210.32.160.0/21
-</span><span style="background-color:#191919;color:#f8f8f2;">210.32.168.0/22
-</span><span style="background-color:#191919;color:#f8f8f2;">210.32.172.0/23
-</span><span style="background-color:#191919;color:#f8f8f2;">210.32.176.0/20
-</span><span style="background-color:#191919;color:#f8f8f2;">222.205.0.0/17
+<span style="background-color:#191919;color:#6d6d6d;">#内网网段
+</span><span style="background-color:#191919;color:#e9fdac;">10.0.2.73 </span><span style="background-color:#191919;color:#6d6d6d;">#VPN服务器IP，需要设置较小的metric值，以便使其优先级高于VPN连接自动设置的路由表
+</span><span style="background-color:#191919;color:#e9fdac;">10.0.0.0/8
+</span><span style="background-color:#191919;color:#e9fdac;">58.196.192.0/19
+</span><span style="background-color:#191919;color:#e9fdac;">58.196.224.0/20
+</span><span style="background-color:#191919;color:#e9fdac;">58.200.100.0/24
+</span><span style="background-color:#191919;color:#e9fdac;">210.32.0.0/20
+</span><span style="background-color:#191919;color:#e9fdac;">210.32.128.0/19
+</span><span style="background-color:#191919;color:#e9fdac;">210.32.160.0/21
+</span><span style="background-color:#191919;color:#e9fdac;">210.32.168.0/22
+</span><span style="background-color:#191919;color:#e9fdac;">210.32.172.0/23
+</span><span style="background-color:#191919;color:#e9fdac;">210.32.176.0/20
+</span><span style="background-color:#191919;color:#e9fdac;">222.205.0.0/17
 </span></pre>
 <p>比如我的NetworkManager的有线连接路由表为：</p>
 <p><img src="route_rule.jpg" alt="路由规则" /></p>
