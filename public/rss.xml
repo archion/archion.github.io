@@ -49,7 +49,8 @@
                 <pubDate>Sat, 04 Jul 2015 15:45:11 +0000</pubDate>
                 <link>https:&#x2F;&#x2F;archion.github.io&#x2F;posts&#x2F;2015-07-04-rust-cross-compilation&#x2F;</link>
                 <guid>https:&#x2F;&#x2F;archion.github.io&#x2F;posts&#x2F;2015-07-04-rust-cross-compilation&#x2F;</guid>
-                <description>&lt;p&gt;Rust在编译可执行文件时，&lt;code&gt;rustc&lt;&#x2F;code&gt;负责编译出目标文件（.o文件），接下来会调用系统的&lt;code&gt;cc&lt;&#x2F;code&gt;编译器进行链接，生成最终的可执行文件，所以要交叉编译之前，你需要两样东西：&lt;&#x2F;p&gt;
+                <description>&lt;p&gt;Update：推荐使用&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;japaric&#x2F;trust&quot;&gt;trust&lt;&#x2F;a&gt;来发布各种平台的二进制文件，比自己交叉编译方便多了。&lt;&#x2F;p&gt;
+&lt;p&gt;Rust在编译可执行文件时，&lt;code&gt;rustc&lt;&#x2F;code&gt;负责编译出目标文件（.o文件），接下来会调用系统的&lt;code&gt;cc&lt;&#x2F;code&gt;编译器进行链接，生成最终的可执行文件，所以要交叉编译之前，你需要两样东西：&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;支持交叉编译的编译器（负责最后的链接）&lt;&#x2F;li&gt;
 &lt;li&gt;目标平台的rust标准库&lt;&#x2F;li&gt;

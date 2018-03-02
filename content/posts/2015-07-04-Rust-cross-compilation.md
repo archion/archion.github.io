@@ -3,9 +3,10 @@ title = "Rust交叉编译"
 date = 2015-07-04T15:45:11Z
 tags = ["rust-lang"]
 [extra]
-mdate = "2016-02-05T19:21:21Z"
+mdate = "2018-03-02T09:47:21Z"
 +++
 
+Update：推荐使用[trust](https://github.com/japaric/trust)来发布各种平台的二进制文件，比自己交叉编译方便多了。
 
 Rust在编译可执行文件时，`rustc`负责编译出目标文件（.o文件），接下来会调用系统的`cc`编译器进行链接，生成最终的可执行文件，所以要交叉编译之前，你需要两样东西：
 

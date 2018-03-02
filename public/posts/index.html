@@ -431,7 +431,8 @@
 								</span>
 							</a>
 							<p>
-								<p>Rust在编译可执行文件时，<code>rustc</code>负责编译出目标文件（.o文件），接下来会调用系统的<code>cc</code>编译器进行链接，生成最终的可执行文件，所以要交叉编译之前，你需要两样东西：</p>
+								<p>Update：推荐使用<a href="https://github.com/japaric/trust">trust</a>来发布各种平台的二进制文件，比自己交叉编译方便多了。</p>
+<p>Rust在编译可执行文件时，<code>rustc</code>负责编译出目标文件（.o文件），接下来会调用系统的<code>cc</code>编译器进行链接，生成最终的可执行文件，所以要交叉编译之前，你需要两样东西：</p>
 <ul>
 <li>支持交叉编译的编译器（负责最后的链接）</li>
 <li>目标平台的rust标准库</li>

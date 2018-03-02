@@ -255,17 +255,19 @@
 描述：启动后要求手动选择窗口管理器，但没有<code>compiz</code>选项<br />
 解决方案：<br />
 首先在<code>~/.config/razor/windowmanagers.conf</code>中添加对compiz的支持</p>
-<pre style="background-color:#191919">
-</pre></li>
+</li>
 </ul>
-<p>[KnownManagers]
-compiz/Name=Compiz
-compiz/Comment=OpenGL compositing window manager
-<code>然后让razor-qt启动compiz：</code>bash ~/.config/razor/session.conf
-[General]
-windowmanager=compiz
-```
-这样作是无法让compiz读取用户自定义的设置的，但是如果按照<a href="https://wiki.archlinux.org/index.php/Razor-qt#Compiz">Arch wiki</a>的做法又会有问题，所以折中的方法是在启动后在razor-qt开机自启动里设置<code>compiz --replace ccp</code></p>
+<pre style="background-color:#191919">
+<span style="background-color:#191919;color:#e9fdac;">[KnownManagers]
+</span><span style="background-color:#191919;color:#e9fdac;">compiz/Name</span><span style="background-color:#191919;color:#ff5e5e;">=</span><span style="background-color:#191919;color:#fbe3bf;">Compiz
+</span><span style="background-color:#191919;color:#e9fdac;">compiz/Comment</span><span style="background-color:#191919;color:#ff5e5e;">=</span><span style="background-color:#191919;color:#fbe3bf;">OpenGL </span><span style="background-color:#191919;color:#e9fdac;">compositing</span><span style="background-color:#191919;color:#f8f8f2;"> window manager
+</span></pre>
+<p>然后让razor-qt启动compiz：</p>
+<pre style="background-color:#191919">
+<span style="background-color:#191919;color:#e9fdac;">[General]
+</span><span style="background-color:#191919;color:#e9fdac;">windowmanager</span><span style="background-color:#191919;color:#ff5e5e;">=</span><span style="background-color:#191919;color:#fbe3bf;">compiz 
+</span></pre>
+<p>这样作是无法让compiz读取用户自定义的设置的，但是如果按照<a href="https://wiki.archlinux.org/index.php/Razor-qt#Compiz">Arch wiki</a>的做法又会有问题，所以折中的方法是在启动后在razor-qt开机自启动里设置<code>compiz --replace ccp</code></p>
 <ul>
 <li>
 <p>java程序的字体反锯齿:<br />

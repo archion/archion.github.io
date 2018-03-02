@@ -117,17 +117,17 @@ mdate = "2016-02-05T21:20:33Z"
 描述：启动后要求手动选择窗口管理器，但没有`compiz`选项  
 解决方案：  
 首先在`~/.config/razor/windowmanagers.conf`中添加对compiz的支持
-	```bash ~/.config/razor/windowmanagers.conf
+```bash ~/.config/razor/windowmanagers.conf
 [KnownManagers]
 compiz/Name=Compiz
 compiz/Comment=OpenGL compositing window manager
-	```
-	然后让razor-qt启动compiz：
-	```bash ~/.config/razor/session.conf 
+```
+然后让razor-qt启动compiz：
+```bash ~/.config/razor/session.conf 
 [General]
 windowmanager=compiz 
-	```
-	这样作是无法让compiz读取用户自定义的设置的，但是如果按照[Arch wiki](https://wiki.archlinux.org/index.php/Razor-qt#Compiz)的做法又会有问题，所以折中的方法是在启动后在razor-qt开机自启动里设置`compiz --replace ccp`
+```
+这样作是无法让compiz读取用户自定义的设置的，但是如果按照[Arch wiki](https://wiki.archlinux.org/index.php/Razor-qt#Compiz)的做法又会有问题，所以折中的方法是在启动后在razor-qt开机自启动里设置`compiz --replace ccp`
 - java程序的字体反锯齿:  
 描述：~~对于`OpenJDK`，~~ 按照[Arch wiki](https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts#Anti-aliasing)的做法无法开启反锯齿  
 原因：因为图形界面属于login shell，而在图形界面启动的终端是nologin shell，这两者在读取初始配置文件是有差别  
