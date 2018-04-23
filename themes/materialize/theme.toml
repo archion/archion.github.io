@@ -37,6 +37,7 @@ description = "Pursue excellence, and success will follow!"
 title = "Links"
 list = [
     {url = "https://github.com/archion", name="my github"},
+    {url = "https://farseerfc.me/", name="Farseerfc的小窝"},
 ]
 
 [extra.materialize.footer.contact]
