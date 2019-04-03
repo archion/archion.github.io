@@ -18,7 +18,7 @@ repo = "https://github.com/Dogfalo/materialize/"
 [extra.materialize]
 logo = {small = "http://placehold.it/32x32", big = "http://placehold.it/240x240"}
 home = {url = "/", name = "Home"}
-copyright = {url = "/#", name ="© 2018 - Zuodong Yu"}
+copyright = {url = "/#", name ="© 2019 - Zuodong Yu"}
 sidebar = "off" #"left"
 links = [
     {url = "/about", name = "About me"},
