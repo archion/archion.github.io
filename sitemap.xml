@@ -1,77 +1,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>https://archion.github.io/posts/setup-web-server-environment/</loc>
-            
-                <lastmod>2014-02-11T12:46:12Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/thought-about-baby/</loc>
-            
-                <lastmod>2017-02-05T21:03:03Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/translation-rust-borrow-and-lifetimes/</loc>
-            
-                <lastmod>2015-02-11T21:08:43Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/introduction-to-dns-message-format/</loc>
-            
-                <lastmod>2015-02-15T13:01:44Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/route-configure-for-two-networks/</loc>
-            
-                <lastmod>2016-01-03T15:12:27Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/rust-cross-compilation/</loc>
-            
-                <lastmod>2015-07-04T15:45:11Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/zju-network/</loc>
-            
-                <lastmod>2018-03-01T13:33:47Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/hello-gutenberg/</loc>
-            
-                <lastmod>2018-02-09T08:00:12Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/hello-world/</loc>
-            
-                <lastmod>2014-02-04T19:48:46Z</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://archion.github.io/posts/find-google-ip/</loc>
-            
-                <lastmod>2014-06-18T23:02:20Z</lastmod>
+            <loc>https://archion.github.io/posts/</loc>
             
         </url>
     
@@ -83,14 +13,35 @@
         </url>
     
         <url>
-            <loc>https://archion.github.io/posts/technical-terms-for-cpu-architectures/</loc>
+            <loc>https://archion.github.io/posts/route-configure-for-two-networks/</loc>
             
-                <lastmod>2015-03-15T10:22:31Z</lastmod>
+                <lastmod>2016-01-03T15:12:27Z</lastmod>
             
         </url>
     
         <url>
-            <loc>https://archion.github.io/posts/</loc>
+            <loc>https://archion.github.io/posts/thought-about-baby/</loc>
+            
+                <lastmod>2017-02-05T21:03:03Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/rust-cross-compilation/</loc>
+            
+                <lastmod>2015-07-04T15:45:11Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/translation-rust-borrow-and-lifetimes/</loc>
+            
+                <lastmod>2015-02-11T21:08:43Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/</loc>
             
         </url>
     
@@ -105,6 +56,55 @@
             <loc>https://archion.github.io/posts/fortran-file-io/</loc>
             
                 <lastmod>2015-02-03T19:13:15Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/setup-web-server-environment/</loc>
+            
+                <lastmod>2014-02-11T12:46:12Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/technical-terms-for-cpu-architectures/</loc>
+            
+                <lastmod>2015-03-15T10:22:31Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/introduction-to-dns-message-format/</loc>
+            
+                <lastmod>2015-02-15T13:01:44Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/zju-network/</loc>
+            
+                <lastmod>2018-03-01T13:33:47Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/find-google-ip/</loc>
+            
+                <lastmod>2014-06-18T23:02:20Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/hello-gutenberg/</loc>
+            
+                <lastmod>2018-02-09T08:00:12Z</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>https://archion.github.io/posts/hello-world/</loc>
+            
+                <lastmod>2014-02-04T19:48:46Z</lastmod>
             
         </url>
     
