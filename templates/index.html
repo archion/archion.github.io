@@ -52,8 +52,8 @@
 					{% if not page.draft %}
 					  <div class="post {{ config.extra.materialize.colorscheme.background.three }}">
 						{{ macros::post_header(page=page, config=config) }}
-						<p>{{ page.summary | safe }}</p>
-						<a href="{{ page.permalink }}">
+						<p>{{ page.summary | safe | striptags}}</p>
+						<a href="{{ page.permalink }}#continue-reading">
 							> Read More
 						</a>
 					  </div>
