@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	
+	<meta name="description" content="">
+	<meta property="og:title" content="Coarray-Fortran 介绍">
+	<meta property="og:image" content="[object]">
+	<meta property="og:url" content="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;introduction-to-coarray-fortran&#x2f;">
+	<meta property="og:description" content="">
+	<meta property="og:site_name" content="Life4Zturn">
+
+	
+		<meta property="og:type" content="article">
+		<meta property="article:published_time" content="2018-02-12T22:16:40+08:00">
+		<meta property="article:author" content="https:&#x2f;&#x2f;archion.github.io">
+	
+
+	
+	<title>Coarray-Fortran 介绍 - Life4Zturn</title>
+
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link type="text/css" rel="stylesheet" href="https:&#x2f;&#x2f;archion.github.io&#x2f;css&#x2f;materialize.css" media="screen,projection"/>
+	<link rel="icon" type="image/png" sizes="192x192" href="https:&#x2f;&#x2f;archion.github.io&#x2f;favicon-192x192.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="https:&#x2f;&#x2f;archion.github.io&#x2f;favicon-128x128.png">
+	<link rel="manifest" href="https:&#x2f;&#x2f;archion.github.io&#x2f;manifest.json">
+	
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;archion.github.io&#x2f;rss.xml">
+	
+
+	
+	<link type="text/css" rel="stylesheet" href="https:&#x2f;&#x2f;archion.github.io&#x2f;css&#x2f;style.css" media="screen,projection"/>
+
+</head>
+
+<body class="grey lighten-3">
+	<div id="root">
+		<header class="white">
+			<nav class="nav top-nav teal" role="navigation">
+				
+				<!--<a id="logo-container" href="#" class="brand-logo">-->
+					<!--<img src="http:&#x2f;&#x2f;placehold.it&#x2f;32x32" class="logo" alt="Logo">-->
+				<!--</a>-->
+				<a class="white-text" style="font-size: 2.5rem;" href=/>Life4Zturn|</a>
+				<a class="white-text" style="font-size: 0.8rem;">余的折腾史</a>
+				
+				<ul class="right hide-on-med-and-down">
+					
+						<li><a href="&#x2f;">Home</a></li>
+					
+					
+						<li><a href="&#x2f;about">About me</a></li>
+					
+					
+					
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+				<!--/div -->
+			</nav>
+		</header>
+		
+		<main>
+			<div class="container">
+				<div class="row">
+					
+	<article class="Post white">
+		
+	<h1>
+		<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;introduction-to-coarray-fortran&#x2f;">
+			Coarray-Fortran 介绍 
+		</a>
+	</h1>
+	 
+		<h3></h3>
+	
+	
+	<div class="row">
+		<!--<div class="col s3">-->
+			<!---->
+		<!--</div>-->
+		<div class="col s7">
+			
+		</div>
+		<div class="col s5 date">
+			
+				Posted:
+				<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;introduction-to-coarray-fortran&#x2f;" title="22:16">
+					<time datetime="2018-02-12T22:16:40+08:00">
+						2018-02-12
+					</time>
+				</a>
+			
+			
+				Modified:
+				<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;introduction-to-coarray-fortran&#x2f;" title="22:16">
+					<time datetime="2018-02-12T22:16:40+08:00">
+						2018-02-12
+					</time>
+				</a>
+			
+		</div>
+	</div>
+
+		<!--<div id="breadcrumbs">-->
+			<!--<nav class="teal">-->
+				<!--<div class="nav-wrapper">-->
+					<!--<div class="col s12">-->
+						<!---->
+							<!---->
+							<!--<a class="breadcrumb">posts</a>-->
+						<!---->
+							<!---->
+							<!--<a class="breadcrumb">introduction-to-coarray-fortran</a>-->
+						<!---->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</nav>-->
+		<!--</div>-->
+
+
+		
+
+		<div id="content">
+			<p>对于共享内存的并行来说，有OpenMP这样很方便的库给我们使用，然而对于分布式内存来说，MPI是大家普遍采用的库，然而MPI这种并行写起来比较麻烦，可能需要对程序有较大的改动，对于分布式内存来说，有没有类似于OpenMP这样方便的库呢？</p>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<p>Intel在这方面有过一些尝试，即Cluster OpenMP。不过这个库现在已经不开发了，原因可能是因为Coarray Fortran (CAF) 的出现，就现在来说，CAF功能还很简单，不能完全替代MPI，不过CAF基于的是distributed shared memory，所以不同节点间的数据访问非常方便，不像MPI那样需要显式的消息传输和接收（MPI-2好像也开始支持distributed shared memory），而且CAF已经成为Fortran 2008语言的标准了，语法简单，跟语言结合紧密，相信以后会更加好用的。</p>
+<p>接下来我简单介绍下CAF，CAF通过对原来的Fortran数据添加一个额外的维度，即codimension来实现远程数据的访问，该维度通过方括号进行访问，有定义codimension的数据被称为coarray，coarray可以是标量，数组，自定义类型等。coarray的底层实现可以有不同的方式，比如基于MPI实现，所以，可以说coarray是比MPI更为高层的并行模型。每一个进程被成为镜像（image），不同镜像之间只能通过coarray来进行数据的访问。标准输入只对第一个镜像有效。</p>
+<p>例子:</p>
+<pre style="background-color:#191919;">
+<span style="color:#f8f8f2;">program main
+	implicit none
+	real(8) :: A(4,4)[2,*]
+	A(:,:)=this_images()
+	write(*,*)A(1,1) ! 等价于A(1,1)[this_images()]
+end program
+</span></pre>
+<p>注意，codimension的大小是由运行时来确定的，所以他最后一个维度的大小一定是<code>*</code>，这里我们定义了一个codimension为2x*的一个4x4的双精度的数组,如果我们以8个进程进行编译<code>ifort main.f90 -coarray -coarray-num-images=8</code>并运行，那么codimension就是2x4，另外如果在使用的时候不指定codimension，那么默认是当前image的coarray指标，这给我们带来了很大的方便，我们可以在无需更改大量代码的情况下实现分布式内存的并行。</p>
+<p>一些自带语句</p>
+<ul>
+<li>num_images: 有多少镜像 </li>
+<li>this_images: 当前镜像的指标，如果传入coarray，则给出该指标对应与该coarray的指标</li>
+<li>image_index: 将coarray指标转化为镜像的指标</li>
+<li>lcobound: coarray指标的下界</li>
+<li>ucobound: coarray指标的上界</li>
+<li>sync all: 同步所有coarray</li>
+<li>sync images: 同步对应的镜像</li>
+<li>error stop: 停止所有镜像</li>
+<li>critical和endcritical: 同一时间只允许单个镜像执行</li>
+</ul>
+<p>更多例子</p>
+<p>顺序执行</p>
+<pre style="background-color:#191919;">
+<span style="color:#f8f8f2;">program main
+	implicit none
+	if(this_image()/=1) sync images(this_image()-1)
+	!do somethings that must in order
+	if(this_image()&lt;num_images()) sync images(this_image()+1)
+end program
+</span></pre><pre style="background-color:#191919;">
+<span style="color:#f8f8f2;">program main
+	implicit none
+	if(this_image()==1) then
+		!do somethings that need to be done before any other images
+		sync images(*)
+	else
+		sync images(1)
+	endif
+end program
+</span></pre>
+<p>Fortran 2008暂时支持有限的功能，更多的功能，比如team，reduction等在Fortran 2015中支持。遗憾的是，不同镜像间对同个文件的读写暂时还没有实现的计划。</p>
+
+		</div>
+
+		
+
+		
+			
+		
+	</article>
+
+				</div>
+			</div>
+		</main>
+		
+
+		<footer class="page-footer teal">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 Tags12">
+						<h3 class="white-text"><a class="white-text" href=/about/>Zuodong Yu</a></h3>
+						<p class="grey-text text-lighten-4">Pursue excellence, and success will follow!</p>
+					</p>
+				</div>
+				<div class="col l3 s12">
+					<h3 class="white-text">Links</h3>
+						<ul>
+							
+							<li><a class="white-text" href="https:&#x2f;&#x2f;github.com&#x2f;archion">my github</a></li>
+							
+							<li><a class="white-text" href="https:&#x2f;&#x2f;farseerfc.me&#x2f;">Farseerfc的小窝</a></li>
+							
+						</ul>
+					</div>
+					<div class="col l3 s12">
+						<h5 class="white-text"></h5>
+						<ul>
+							
+						</ul>
+					</div>
+					<div class="col s3 ac">
+						<div class="ac-img">
+							<img class="ac">
+						</div>
+						<span class="tp">点击调戏<a class="nb">+0</a></span>
+						<style>
+							div.ac {
+								position: relative;
+								top: -10px;
+								height: 20px;
+							}
+							div.ac-img {
+								height: 90px;
+								width: 90px;
+								line-height: 90px;
+								overflow: hidden;
+							}
+							img.ac {
+								margin-left: 5px;
+								margin-top: 12px;
+								height: 70px;
+								cursor: pointer;
+							}
+							div.ac:hover div.ac-img{
+								background: white;
+								border-radius: 50%;
+							}
+							span.tp {
+								visibility: hidden;
+							}
+							div.ac:hover span.tp {
+								visibility: visible;
+								position: relative;
+								top: -90px;
+								left: 85px;
+								border: 2px solid;
+								border-radius: 10px 10px 10px 0px;
+								padding: 3px;
+							}
+							a.nb {
+								text-decoration: none;
+								border-radius: 5px;
+								color : white;
+							}
+							div.ac-img:active+span>a {
+								background : #FF6633;
+								-webkit-animation: 0.5s em forwards;
+								animation: 0.5s em forwards;
+							}
+							@-webkit-keyframes em {
+								to { background: transparent;}
+							}
+							@keyframes em {
+								to { background: transparent;}
+							}
+						</style>
+						<script>
+							var ac=document.querySelector("img.ac");
+							ac.src="/img/acmusume/"+Math.floor((Math.random() * 94) + 1)+".gif";
+							ac.addEventListener('mousedown', function(e) {
+								e.target.src="/img/acmusume/"+Math.floor((Math.random() * 94) + 1)+".gif";
+								document.querySelector("a.nb").innerHTML="+"+(Number(document.querySelector("a.nb").innerHTML)+1);
+							},false);
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col s6" >
+							
+<span class="icon_row">
+	<!-- social -->
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- chat stuff -->
+	
+	
+				
+	
+	
+</span>
+<span class="icon_row">
+	<!-- show and tell -->
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- sound -->
+	
+	
+		
+	
+</span>
+<span class="icon_row">
+	<!-- artsy -->
+	
+	
+</span>
+<span class="icon_row">
+	<!-- video -->
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- coding -->
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- professionalish -->
+	
+	
+	
+	
+	
+</span>
+
+							<a class="brown-text text-lighten-3">Powered by</a> <a class="white-text" href="https://www.getgutenberg.io/" >guterberg</a><a class="brown-text text-lighten-3">, themed by</a> <a class="white-text" href="https://github.com/verpeteren/gutenberg-materialize">materialize</a>
+						</div>
+						<div class="col s3">
+							<a class="white-text text-light" href="https:&#x2f;&#x2f;archion.github.io&#x2f;sitemap.xml">
+								Sitemap
+							</a>
+							-
+							
+								<a class="white-text text-light" href="https:&#x2f;&#x2f;archion.github.io&#x2f;rss.xml">
+									RSS
+								</a>
+							
+						</div>
+						<div class="col s3">
+							<a class="brown-text text-lighten-3">
+								© 2018 - Zuodong Yu
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;materialize.min.js"></script>
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;init.js"></script>
+		<script>
+			$(".button-collapse").sideNav();
+		</script>
+		
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456789-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'UA-123456789-1');
+			</script>
+		
+	</div>
+</body>
+</html>

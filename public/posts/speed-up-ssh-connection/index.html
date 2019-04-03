@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	
+	<meta name="description" content="">
+	<meta property="og:title" content="提高ssh连接速度">
+	<meta property="og:image" content="[object]">
+	<meta property="og:url" content="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;speed-up-ssh-connection&#x2f;">
+	<meta property="og:description" content="">
+	<meta property="og:site_name" content="Life4Zturn">
+
+	
+		<meta property="og:type" content="article">
+		<meta property="article:published_time" content="2018-02-12T22:27:07+08:00">
+		<meta property="article:author" content="https:&#x2f;&#x2f;archion.github.io">
+	
+
+	
+	<title>提高ssh连接速度 - Life4Zturn</title>
+
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link type="text/css" rel="stylesheet" href="https:&#x2f;&#x2f;archion.github.io&#x2f;css&#x2f;materialize.css" media="screen,projection"/>
+	<link rel="icon" type="image/png" sizes="192x192" href="https:&#x2f;&#x2f;archion.github.io&#x2f;favicon-192x192.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="https:&#x2f;&#x2f;archion.github.io&#x2f;favicon-128x128.png">
+	<link rel="manifest" href="https:&#x2f;&#x2f;archion.github.io&#x2f;manifest.json">
+	
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;archion.github.io&#x2f;rss.xml">
+	
+
+	
+	<link type="text/css" rel="stylesheet" href="https:&#x2f;&#x2f;archion.github.io&#x2f;css&#x2f;style.css" media="screen,projection"/>
+
+</head>
+
+<body class="grey lighten-3">
+	<div id="root">
+		<header class="white">
+			<nav class="nav top-nav teal" role="navigation">
+				
+				<!--<a id="logo-container" href="#" class="brand-logo">-->
+					<!--<img src="http:&#x2f;&#x2f;placehold.it&#x2f;32x32" class="logo" alt="Logo">-->
+				<!--</a>-->
+				<a class="white-text" style="font-size: 2.5rem;" href=/>Life4Zturn|</a>
+				<a class="white-text" style="font-size: 0.8rem;">余的折腾史</a>
+				
+				<ul class="right hide-on-med-and-down">
+					
+						<li><a href="&#x2f;">Home</a></li>
+					
+					
+						<li><a href="&#x2f;about">About me</a></li>
+					
+					
+					
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+				<!--/div -->
+			</nav>
+		</header>
+		
+		<main>
+			<div class="container">
+				<div class="row">
+					
+	<article class="Post white">
+		
+	<h1>
+		<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;speed-up-ssh-connection&#x2f;">
+			提高ssh连接速度 
+		</a>
+	</h1>
+	 
+		<h3></h3>
+	
+	
+	<div class="row">
+		<!--<div class="col s3">-->
+			<!---->
+		<!--</div>-->
+		<div class="col s7">
+			
+		</div>
+		<div class="col s5 date">
+			
+				Posted:
+				<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;speed-up-ssh-connection&#x2f;" title="22:27">
+					<time datetime="2018-02-12T22:27:07+08:00">
+						2018-02-12
+					</time>
+				</a>
+			
+			
+				Modified:
+				<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;speed-up-ssh-connection&#x2f;" title="22:27">
+					<time datetime="2018-02-12T22:27:07+08:00">
+						2018-02-12
+					</time>
+				</a>
+			
+		</div>
+	</div>
+
+		<!--<div id="breadcrumbs">-->
+			<!--<nav class="teal">-->
+				<!--<div class="nav-wrapper">-->
+					<!--<div class="col s12">-->
+						<!---->
+							<!---->
+							<!--<a class="breadcrumb">posts</a>-->
+						<!---->
+							<!---->
+							<!--<a class="breadcrumb">speed-up-ssh-connection</a>-->
+						<!---->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</nav>-->
+		<!--</div>-->
+
+
+		
+
+		<div id="content">
+			<p>在服务端的<code>/etc/ssh/sshd_config</code>中设置<code>UseDSN no</code></p>
+<p>如果还慢的话可以再设置<code>UsePAM no</code></p>
+
+		</div>
+
+		
+
+		
+			
+		
+	</article>
+
+				</div>
+			</div>
+		</main>
+		
+
+		<footer class="page-footer teal">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 Tags12">
+						<h3 class="white-text"><a class="white-text" href=/about/>Zuodong Yu</a></h3>
+						<p class="grey-text text-lighten-4">Pursue excellence, and success will follow!</p>
+					</p>
+				</div>
+				<div class="col l3 s12">
+					<h3 class="white-text">Links</h3>
+						<ul>
+							
+							<li><a class="white-text" href="https:&#x2f;&#x2f;github.com&#x2f;archion">my github</a></li>
+							
+							<li><a class="white-text" href="https:&#x2f;&#x2f;farseerfc.me&#x2f;">Farseerfc的小窝</a></li>
+							
+						</ul>
+					</div>
+					<div class="col l3 s12">
+						<h5 class="white-text"></h5>
+						<ul>
+							
+						</ul>
+					</div>
+					<div class="col s3 ac">
+						<div class="ac-img">
+							<img class="ac">
+						</div>
+						<span class="tp">点击调戏<a class="nb">+0</a></span>
+						<style>
+							div.ac {
+								position: relative;
+								top: -10px;
+								height: 20px;
+							}
+							div.ac-img {
+								height: 90px;
+								width: 90px;
+								line-height: 90px;
+								overflow: hidden;
+							}
+							img.ac {
+								margin-left: 5px;
+								margin-top: 12px;
+								height: 70px;
+								cursor: pointer;
+							}
+							div.ac:hover div.ac-img{
+								background: white;
+								border-radius: 50%;
+							}
+							span.tp {
+								visibility: hidden;
+							}
+							div.ac:hover span.tp {
+								visibility: visible;
+								position: relative;
+								top: -90px;
+								left: 85px;
+								border: 2px solid;
+								border-radius: 10px 10px 10px 0px;
+								padding: 3px;
+							}
+							a.nb {
+								text-decoration: none;
+								border-radius: 5px;
+								color : white;
+							}
+							div.ac-img:active+span>a {
+								background : #FF6633;
+								-webkit-animation: 0.5s em forwards;
+								animation: 0.5s em forwards;
+							}
+							@-webkit-keyframes em {
+								to { background: transparent;}
+							}
+							@keyframes em {
+								to { background: transparent;}
+							}
+						</style>
+						<script>
+							var ac=document.querySelector("img.ac");
+							ac.src="/img/acmusume/"+Math.floor((Math.random() * 94) + 1)+".gif";
+							ac.addEventListener('mousedown', function(e) {
+								e.target.src="/img/acmusume/"+Math.floor((Math.random() * 94) + 1)+".gif";
+								document.querySelector("a.nb").innerHTML="+"+(Number(document.querySelector("a.nb").innerHTML)+1);
+							},false);
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col s6" >
+							
+<span class="icon_row">
+	<!-- social -->
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- chat stuff -->
+	
+	
+				
+	
+	
+</span>
+<span class="icon_row">
+	<!-- show and tell -->
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- sound -->
+	
+	
+		
+	
+</span>
+<span class="icon_row">
+	<!-- artsy -->
+	
+	
+</span>
+<span class="icon_row">
+	<!-- video -->
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- coding -->
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- professionalish -->
+	
+	
+	
+	
+	
+</span>
+
+							<a class="brown-text text-lighten-3">Powered by</a> <a class="white-text" href="https://www.getgutenberg.io/" >guterberg</a><a class="brown-text text-lighten-3">, themed by</a> <a class="white-text" href="https://github.com/verpeteren/gutenberg-materialize">materialize</a>
+						</div>
+						<div class="col s3">
+							<a class="white-text text-light" href="https:&#x2f;&#x2f;archion.github.io&#x2f;sitemap.xml">
+								Sitemap
+							</a>
+							-
+							
+								<a class="white-text text-light" href="https:&#x2f;&#x2f;archion.github.io&#x2f;rss.xml">
+									RSS
+								</a>
+							
+						</div>
+						<div class="col s3">
+							<a class="brown-text text-lighten-3">
+								© 2018 - Zuodong Yu
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;materialize.min.js"></script>
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;init.js"></script>
+		<script>
+			$(".button-collapse").sideNav();
+		</script>
+		
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456789-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'UA-123456789-1');
+			</script>
+		
+	</div>
+</body>
+</html>

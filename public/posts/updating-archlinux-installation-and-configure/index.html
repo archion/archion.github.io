@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	
+	<meta name="description" content="">
+	<meta property="og:title" content="[持续更新...]Archlinux安装和配置">
+	<meta property="og:image" content="[object]">
+	<meta property="og:url" content="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;updating-archlinux-installation-and-configure&#x2f;">
+	<meta property="og:description" content="">
+	<meta property="og:site_name" content="Life4Zturn">
+
+	
+		<meta property="og:type" content="article">
+		<meta property="article:published_time" content="2014-02-06T18:46:26Z">
+		<meta property="article:author" content="https:&#x2f;&#x2f;archion.github.io">
+	
+
+	
+	<title>[持续更新...]Archlinux安装和配置 - Life4Zturn</title>
+
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link type="text/css" rel="stylesheet" href="https:&#x2f;&#x2f;archion.github.io&#x2f;css&#x2f;materialize.css" media="screen,projection"/>
+	<link rel="icon" type="image/png" sizes="192x192" href="https:&#x2f;&#x2f;archion.github.io&#x2f;favicon-192x192.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="https:&#x2f;&#x2f;archion.github.io&#x2f;favicon-128x128.png">
+	<link rel="manifest" href="https:&#x2f;&#x2f;archion.github.io&#x2f;manifest.json">
+	
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2f;&#x2f;archion.github.io&#x2f;rss.xml">
+	
+
+	
+	<link type="text/css" rel="stylesheet" href="https:&#x2f;&#x2f;archion.github.io&#x2f;css&#x2f;style.css" media="screen,projection"/>
+
+</head>
+
+<body class="grey lighten-3">
+	<div id="root">
+		<header class="white">
+			<nav class="nav top-nav teal" role="navigation">
+				
+				<!--<a id="logo-container" href="#" class="brand-logo">-->
+					<!--<img src="http:&#x2f;&#x2f;placehold.it&#x2f;32x32" class="logo" alt="Logo">-->
+				<!--</a>-->
+				<a class="white-text" style="font-size: 2.5rem;" href=/>Life4Zturn|</a>
+				<a class="white-text" style="font-size: 0.8rem;">余的折腾史</a>
+				
+				<ul class="right hide-on-med-and-down">
+					
+						<li><a href="&#x2f;">Home</a></li>
+					
+					
+						<li><a href="&#x2f;about">About me</a></li>
+					
+					
+					
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+				<!--/div -->
+			</nav>
+		</header>
+		
+		<main>
+			<div class="container">
+				<div class="row">
+					
+	<article class="Post white">
+		
+	<h1>
+		<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;updating-archlinux-installation-and-configure&#x2f;">
+			[持续更新...]Archlinux安装和配置 
+		</a>
+	</h1>
+	 
+		<h3></h3>
+	
+	
+	<div class="row">
+		<!--<div class="col s3">-->
+			<!---->
+		<!--</div>-->
+		<div class="col s7">
+			
+		</div>
+		<div class="col s5 date">
+			
+				Posted:
+				<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;updating-archlinux-installation-and-configure&#x2f;" title="18:46">
+					<time datetime="2014-02-06T18:46:26Z">
+						2014-02-06
+					</time>
+				</a>
+			
+			
+				Modified:
+				<a class="title" href="https:&#x2f;&#x2f;archion.github.io&#x2f;posts&#x2f;updating-archlinux-installation-and-configure&#x2f;" title="21:20">
+					<time datetime="2016-02-05T21:20:33Z">
+						2016-02-05
+					</time>
+				</a>
+			
+		</div>
+	</div>
+
+		<!--<div id="breadcrumbs">-->
+			<!--<nav class="teal">-->
+				<!--<div class="nav-wrapper">-->
+					<!--<div class="col s12">-->
+						<!---->
+							<!---->
+							<!--<a class="breadcrumb">posts</a>-->
+						<!---->
+							<!---->
+							<!--<a class="breadcrumb">updating-archlinux-installation-and-configure</a>-->
+						<!---->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</nav>-->
+		<!--</div>-->
+
+
+		
+
+		<div id="content">
+			<p><img src="https://archion.github.io/posts/updating-archlinux-installation-and-configure/archlinux.jpg" alt="截图" /></p>
+<p>想给家里的老台式机也装个Arch，顺便记录下，效果如题图</p>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<h2 id="archlinuxde-jian-yi-an-zhuang-bu-zou">Archlinux的简易安装步骤</h2>
+<ul>
+<li>用dd制作Archlinux的u盘启动盘</li>
+<li>配置网络</li>
+<li>分区</li>
+<li>设置分区文件系统</li>
+<li>挂载分区</li>
+<li>配置pacman的镜像</li>
+<li>安装arch基本系统</li>
+<li>生成分区表fstab</li>
+<li>chroot转到新安装的系统</li>
+<li>配置新系统的Locale，时区和时间</li>
+<li>配置网络</li>
+<li>设置root密码</li>
+<li>安装启动加载器grub</li>
+<li>退出账户，取消挂载，重启</li>
+<li>配置网络</li>
+<li>添加账户并设置密码</li>
+<li>安装字体，声音系统，显卡驱动和xorg</li>
+</ul>
+<p>详细步骤参考<a href="https://wiki.archlinux.org/index.php/Beginners%27_Guide">官方wiki新手入门</a></p>
+<h2 id="an-zhuang-ruan-jian">安装软件</h2>
+<h3 id="ji-ben-zhuo-mian-huan-jing">基本桌面环境</h3>
+<ul>
+<li><code>sudo</code></li>
+<li><code>yaourt</code>：包管理器
+~~ - <code>ccsm compiz-core emerald emerald-themes compiz-fusion-plugins-main compiz-fusion-plugins-extra | openbox xcompmgr </code>：窗口管理器  ~~
+~~不知是显卡比较老的缘故还是其他原因，compiz启动不了，只好用openbox作为替代，需要安装xcompmgr以提供透明效果~~ 最近更新了显卡驱动，可以用了</li>
+<li><code>compiz emerald0.9 emerald-themes</code>：窗口管理器 (compiz 0.9.x)</li>
+<li><code>ntp</code>：同步网络时间</li>
+<li><code>lightdm lightdm-gtk-greeter</code>：登录管理器</li>
+<li>~~<code>razor-qt</code>：桌面环境~~</li>
+<li><code>lxqt</code>：桌面环境（除了pcmanfm-qt，桌面由pcmanfm提供）</li>
+<li><code>acpid</code></li>
+</ul>
+<h3 id="chang-yong-ruan-jian">常用软件</h3>
+<ul>
+<li><code>tilda</code>：终端</li>
+<li><code>openssh</code></li>
+<li><code>zsh</code></li>
+<li><code>git</code>：版本管理</li>
+<li><code>tmux</code>：终端复用</li>
+<li><code>rtorrent</code>：下载软件</li>
+<li><code>conky</code>：信息桌面显示</li>
+<li><code>fcitx-im</code>：输入法</li>
+<li><code>pcmanfm gvfs</code>：文件管理器</li>
+<li>~~<code>gpicview</code>：图片浏览器~~</li>
+<li><code>sxiv</code>：图片浏览器</li>
+<li><code>synapse</code>：快速程序启动器</li>
+<li><code>gvim</code>：文本编辑器</li>
+<li>~~<code>mplayer</code>：视频播发器~~</li>
+<li><code>mpv</code>：视频播发器</li>
+<li><code>chromium</code>：网页浏览器</li>
+<li>~~<code>zathura zathura-ps</code>：eps阅读器~~</li>
+<li><code>gv</code>：eps阅读器</li>
+<li><code>llpp</code>：pdf阅读器</li>
+<li><code>deadbeef</code>：音乐播放器</li>
+<li>~~<code>jabref</code>：文献管理~~</li>
+<li><code>zotero</code>：文献管理</li>
+<li><code>nutstore</code>：坚果云</li>
+<li><code>network-manager-applet gnome-keyring</code>：网络链接管理</li>
+<li><code>texlive-core texlive-latexextra texlive-langcjk texlive-publishers</code>：LaTeX</li>
+<li><code>intel-fortran-compiler</code>：ifort</li>
+</ul>
+<h3 id="yi-xie-zhu-ti">一些主题</h3>
+<ul>
+<li><code>oxygen-xcursors</code></li>
+<li><code>gtk-engines gtk-engine-murrine gtk-engine-unico zukitwo-themes faience-icon-theme faenza-icon-theme</code></li>
+</ul>
+<h2 id="pei-zhi">配置</h2>
+<ul>
+<li><code>ssh</code>：<a href="https://wiki.archlinux.org/index.php/Secure_Shell#Daemon">启动服务</a>并<a href="https://wiki.archlinux.org/index.php/SSH_Keys#Simple_method">配置密钥</a></li>
+<li><code>zsh</code>：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></li>
+<li><code>sudo</code>：<a href="https://wiki.archlinux.org/index.php/sudo#Example_Entries">允许wheel执行sudo</a>，<a href="https://wiki.archlinux.org/index.php/sudo#Environment_variables">传递环境变量</a>，<a href="https://wiki.archlinux.org/index.php/sudo#Passing_aliases">传递别名</a></li>
+<li><code>lightdm</code>：<a href="https://wiki.archlinux.org/index.php/LightDM#Enabling_Autologin">启动自动登录</a>、<a href="https://wiki.archlinux.org/index.php/LightDM#NumLock_ON">启动小键盘</a>（最好同时加<code>上session-setup-script=/usr/bin/numlockx on</code>）和设置主题：<code>/etc/lightdm/lightdm-gtk-greeter.conf</code></li>
+<li><code>grub</code>：<a href="https://wiki.archlinux.org/index.php/GRUB#Recall_previous_entry">记住上次选择的系统</a>，编辑后执行<code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code></li>
+<li>支持休眠：编辑<a href="https://wiki.archlinux.org/index.php/Suspend_and_Hibernate#Required_kernel_parameters">grub</a>和<a href="https://wiki.archlinux.org/index.php/Suspend_and_Hibernate#Recreate_initial_ramdisk">mkinicpio.conf</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Polkit#Allow_mounting_a_filesystem_on_a_system_device_for_any_user">无密码挂载本地磁盘</a></li>
+<li><code>NetworkManager</code>：<a href="https://wiki.archlinux.org/index.php/NetworkManager#Base_install">停用并禁止其他网络服务</a>（一般为<code>dhcpcd.service</code>），<a href="https://wiki.archlinux.org/index.php/NetworkManager#Enable_NetworkManager">启动</a><code>NetworkManager.service</code></li>
+<li><code>pluseaudio</code>：<a href="https://wiki.archlinux.org/index.php/PulseAudio#ALSA">支持只支持<code>ALSA</code>的应用</a></li>
+<li><code>sxiv</code>：~~<a href="https://github.com/muennich/sxiv/issues/101">修改config.h中的GIF_LOOP变量值为1</a>以支持gif无限循环~~ 新版支持<code>-a</code>选项</li>
+<li>一些软件的家目录<a href="https://github.com/archion/mylinux">配置</a>
+<ul>
+<li>vim</li>
+<li>zsh</li>
+<li>mplayer</li>
+<li>zathura</li>
+<li>razor-qt</li>
+<li>compiz</li>
+<li>tmux</li>
+<li>rtorrent</li>
+<li>conky</li>
+<li>emerald themes settings</li>
+<li>deadbeef</li>
+<li>tilda</li>
+<li>gtk and qt themes settings</li>
+<li>xwindow file settings</li>
+<li>and defaults app settings</li>
+</ul>
+</li>
+</ul>
+<h2 id="yi-xie-wen-ti">一些问题</h2>
+<ul>
+<li>
+<p><code>pcmanfm</code>左边栏没有本地磁盘图标<br />
+描述：因为用的是<code>LightDM</code>，所以在<code>.xprofile</code>加入<code>exec razor-session</code>以启动<code>razor-qt</code>，结果发现<code>pcmanfm</code>左边栏本地磁盘图标消失，在终端以<code>dbus-launch pcmanfm</code>运行则会出现<br />
+解决方案：在<code>.xprofile</code>中移除<code>exec razor-session</code>，对于<code>LightDM</code>来说移除后也可启动razor-qt环境，对于<code>SLiM</code>，貌似不行</p>
+</li>
+<li>
+<p>~~<code>razor-qt</code>无法识别compiz~~ 改用LXQt，已支持<code>compiz ccp</code><br />
+描述：启动后要求手动选择窗口管理器，但没有<code>compiz</code>选项<br />
+解决方案：<br />
+首先在<code>~/.config/razor/windowmanagers.conf</code>中添加对compiz的支持</p>
+</li>
+</ul>
+<pre style="background-color:#191919;">
+<span style="color:#e9fdac;">[KnownManagers]
+compiz/Name</span><span style="color:#ff5e5e;">=</span><span style="color:#fbe3bf;">Compiz
+</span><span style="color:#e9fdac;">compiz/Comment</span><span style="color:#ff5e5e;">=</span><span style="color:#fbe3bf;">OpenGL </span><span style="color:#e9fdac;">compositing</span><span style="color:#f8f8f2;"> window manager
+</span></pre>
+<p>然后让razor-qt启动compiz：</p>
+<pre style="background-color:#191919;">
+<span style="color:#e9fdac;">[General]
+windowmanager</span><span style="color:#ff5e5e;">=</span><span style="color:#fbe3bf;">compiz 
+</span></pre>
+<p>这样作是无法让compiz读取用户自定义的设置的，但是如果按照<a href="https://wiki.archlinux.org/index.php/Razor-qt#Compiz">Arch wiki</a>的做法又会有问题，所以折中的方法是在启动后在razor-qt开机自启动里设置<code>compiz --replace ccp</code></p>
+<ul>
+<li>
+<p>java程序的字体反锯齿:<br />
+描述：~~对于<code>OpenJDK</code>，~~ 按照<a href="https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts#Anti-aliasing">Arch wiki</a>的做法无法开启反锯齿<br />
+原因：因为图形界面属于login shell，而在图形界面启动的终端是nologin shell，这两者在读取初始配置文件是有差别<br />
+解决方案：~~还没找到，不过发现从终端启动java程序会有反锯齿效果~~ 将命令添加到<code>/etc/profile</code></p>
+</li>
+<li>
+<p>zip文件解压乱码:<br />
+描述：在windows上压缩的文件，是以系统默认编码中文来压缩文件。由于zip文件中没有声明其编码，所以linux上的unzip一般以默认编码解压，中文文件名会出现乱码。<br />
+解决方案：原先unzip支持<code>-O</code>选项来指定编码，现在没有了，可以安装AUR里的unzip-iconv来提供该选项，安装完后解压命令为<code>unzip -O CP936 XXX.zip</code></p>
+</li>
+</ul>
+
+		</div>
+
+		
+
+		
+			
+		
+	</article>
+
+				</div>
+			</div>
+		</main>
+		
+
+		<footer class="page-footer teal">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 Tags12">
+						<h3 class="white-text"><a class="white-text" href=/about/>Zuodong Yu</a></h3>
+						<p class="grey-text text-lighten-4">Pursue excellence, and success will follow!</p>
+					</p>
+				</div>
+				<div class="col l3 s12">
+					<h3 class="white-text">Links</h3>
+						<ul>
+							
+							<li><a class="white-text" href="https:&#x2f;&#x2f;github.com&#x2f;archion">my github</a></li>
+							
+							<li><a class="white-text" href="https:&#x2f;&#x2f;farseerfc.me&#x2f;">Farseerfc的小窝</a></li>
+							
+						</ul>
+					</div>
+					<div class="col l3 s12">
+						<h5 class="white-text"></h5>
+						<ul>
+							
+						</ul>
+					</div>
+					<div class="col s3 ac">
+						<div class="ac-img">
+							<img class="ac">
+						</div>
+						<span class="tp">点击调戏<a class="nb">+0</a></span>
+						<style>
+							div.ac {
+								position: relative;
+								top: -10px;
+								height: 20px;
+							}
+							div.ac-img {
+								height: 90px;
+								width: 90px;
+								line-height: 90px;
+								overflow: hidden;
+							}
+							img.ac {
+								margin-left: 5px;
+								margin-top: 12px;
+								height: 70px;
+								cursor: pointer;
+							}
+							div.ac:hover div.ac-img{
+								background: white;
+								border-radius: 50%;
+							}
+							span.tp {
+								visibility: hidden;
+							}
+							div.ac:hover span.tp {
+								visibility: visible;
+								position: relative;
+								top: -90px;
+								left: 85px;
+								border: 2px solid;
+								border-radius: 10px 10px 10px 0px;
+								padding: 3px;
+							}
+							a.nb {
+								text-decoration: none;
+								border-radius: 5px;
+								color : white;
+							}
+							div.ac-img:active+span>a {
+								background : #FF6633;
+								-webkit-animation: 0.5s em forwards;
+								animation: 0.5s em forwards;
+							}
+							@-webkit-keyframes em {
+								to { background: transparent;}
+							}
+							@keyframes em {
+								to { background: transparent;}
+							}
+						</style>
+						<script>
+							var ac=document.querySelector("img.ac");
+							ac.src="/img/acmusume/"+Math.floor((Math.random() * 94) + 1)+".gif";
+							ac.addEventListener('mousedown', function(e) {
+								e.target.src="/img/acmusume/"+Math.floor((Math.random() * 94) + 1)+".gif";
+								document.querySelector("a.nb").innerHTML="+"+(Number(document.querySelector("a.nb").innerHTML)+1);
+							},false);
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col s6" >
+							
+<span class="icon_row">
+	<!-- social -->
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- chat stuff -->
+	
+	
+				
+	
+	
+</span>
+<span class="icon_row">
+	<!-- show and tell -->
+	
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- sound -->
+	
+	
+		
+	
+</span>
+<span class="icon_row">
+	<!-- artsy -->
+	
+	
+</span>
+<span class="icon_row">
+	<!-- video -->
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- coding -->
+	
+	
+	
+	
+</span>
+<span class="icon_row">
+	<!-- professionalish -->
+	
+	
+	
+	
+	
+</span>
+
+							<a class="brown-text text-lighten-3">Powered by</a> <a class="white-text" href="https://www.getgutenberg.io/" >guterberg</a><a class="brown-text text-lighten-3">, themed by</a> <a class="white-text" href="https://github.com/verpeteren/gutenberg-materialize">materialize</a>
+						</div>
+						<div class="col s3">
+							<a class="white-text text-light" href="https:&#x2f;&#x2f;archion.github.io&#x2f;sitemap.xml">
+								Sitemap
+							</a>
+							-
+							
+								<a class="white-text text-light" href="https:&#x2f;&#x2f;archion.github.io&#x2f;rss.xml">
+									RSS
+								</a>
+							
+						</div>
+						<div class="col s3">
+							<a class="brown-text text-lighten-3">
+								© 2018 - Zuodong Yu
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;materialize.min.js"></script>
+		<script type="text/javascript" src="https:&#x2f;&#x2f;archion.github.io&#x2f;js&#x2f;init.js"></script>
+		<script>
+			$(".button-collapse").sideNav();
+		</script>
+		
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456789-1"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'UA-123456789-1');
+			</script>
+		
+	</div>
+</body>
+</html>

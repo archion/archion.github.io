@@ -1,5 +1,5 @@
 #!/bin/bash
-gutenberg build
+zola build
 git remote remove origin
 git init
 git add -A
